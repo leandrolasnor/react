@@ -1,2 +1,2 @@
 ## React
-#### Proof of concept
+#### Proof of Concept
