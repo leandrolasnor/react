@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+    front:
+        container_name: front
+        build: .
+        command: sh -c "yarn --prefer-offline && yarn dev --ignore-engines"
+        stdin_open: true
+        tty: true
+        volumes:
+            - ./:/app
+        ports:
+            - "3003:3003"

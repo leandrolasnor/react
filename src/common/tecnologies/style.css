@@ -1,0 +1,19 @@
+.tecnologies {
+    text-align: center;
+    padding: 0
+}
+
+.tecnologies li{
+    display: inline;
+    font-size: x-large;
+    padding: 0 5% 0px 5%;
+}
+
+.tecnologies li span{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+
+.tecnologies li a{
+    color: aliceblue;
+}

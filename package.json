@@ -1,0 +1,86 @@
+{
+  "name": "moat.front",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/plugin-syntax-flow": "^7.17.12",
+    "@babel/plugin-transform-react-jsx": "^7.17.12",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/fontawesome-free-regular": "^5.0.13",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@testing-library/dom": "^8.14.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@thrash-industries/react-actioncable-provider": "^3.0.4",
+    "autoprefixer": "^10.4.7",
+    "axios": "^0.21.1",
+    "axios-debug-log": "^0.8.2",
+    "bootstrap": "^4.6.0",
+    "bootstrap-social": "^5.1.1",
+    "expo-cli": "^4.8.1",
+    "express": "^4.18.1",
+    "font-awesome": "^4.7.0",
+    "hover.css": "^2.3.2",
+    "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
+    "popper.js": "^1.16.1",
+    "postcss": "^8.4.14",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
+    "react-dom": "^17.0.2",
+    "react-dropzone-uploader": "^2.11.0",
+    "react-loading-skeleton": "^3.1.0",
+    "react-redux": "^7.2.4",
+    "react-redux-toastr": "^7.6.5",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^5.0.1",
+    "react-through": "^1.1.4",
+    "react-tooltip": "^4.2.21",
+    "redux": "^4.1.0",
+    "redux-form": "^8.3.7",
+    "redux-multi": "^0.1.12",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.53.0",
+    "typescript": "^4.7.4",
+    "web-vitals": "^1.0.1"
+  },
+  "resolutions": {
+    "//": "See https://github.com/facebook/create-react-app/issues/11773",
+    "react-error-overlay": "6.0.11"
+  },
+  "scripts": {
+    "start": "node express.js",
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "react-error-overlay": "6.0.11"
+  }
+}
