@@ -1,7 +1,7 @@
 version: '3.7'
 services:
     front:
-        container_name: front
+        container_name: react
         build: .
         command: sh -c "yarn --prefer-offline && yarn dev --ignore-engines"
         stdin_open: true
