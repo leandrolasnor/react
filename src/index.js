@@ -39,7 +39,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Index />
   </React.StrictMode>,
-  document.getElementById('musicollection')
+  document.getElementById('app')
 );
 
 // If you want to start measuring performance in your app, pass a function
