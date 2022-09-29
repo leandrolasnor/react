@@ -58,7 +58,7 @@ let ZipCodeSearch = props => {
   }
 
   const handleCaptureSubmit = (e) => {
-    let zip_code = zip.replace('-', '').replace('(', '').replace(')', '')
+    let zip_code = zip.match(/\d/g).join('')
     if(zip_code.length !== 8) return
     dispatch(capture_address(zip_code))
     setCapturing(true)
