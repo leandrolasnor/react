@@ -31,7 +31,7 @@ let ZipCodeSearch = props => {
   const query = useSelector(state => seletor(state, "query"))
   const zip = useSelector(state => seletor(state, "zip"))
   const zip_code_search = useSelector(state => state.zip_code_search)
-  const {addreses} = zip_code_search;
+  const {addreses, pagination} = zip_code_search;
   const [searching, setSearching] = useState(false);
   const [capturing, setCapturing] = useState(true);
   const { submitting, reset } = props;
@@ -49,6 +49,11 @@ let ZipCodeSearch = props => {
     reset();
     setSearching(false)
     setCapturing(false)
+  }
+
+  const paginate = page => {
+    axios.defaults.headers.common['current-page'] = page
+    dispatch(search_addreses(query))
   }
 
   const handleSearchSubmit = (e) => {
@@ -116,6 +121,24 @@ let ZipCodeSearch = props => {
                     <List addreses={addreses} />
                   </tbody>
                 </Table>
+                {pagination.items_count > 0 ? 
+                  <Row>
+                    <Col lg={{span:2, offset:3}}>
+                      <Button type="button" onClick={() => paginate(_.get(pagination, 'current_page') - 1)} disabled={1 === pagination.current_page} className="btn-sm btn-light btn-block font-weight-bold">
+                        <FontAwesomeIcon icon={["fas", "fa-arrow-left"]}/>
+                      </Button>
+                    </Col>
+                    <Col lg={2}>
+                      <h3 className="text-center text-light font-weight-light">
+                        {`${pagination.current_page}/${pagination.pages_count}`}
+                      </h3>
+                    </Col>
+                    <Col lg={2}>
+                      <Button type="button" onClick={() => paginate(_.get(pagination, 'current_page') + 1)} disabled={pagination.current_page === pagination.pages_count} className="btn-sm btn-light btn-block font-weight-bold">
+                        <FontAwesomeIcon icon={["fas", "fa-arrow-right"]}/>
+                      </Button>
+                    </Col>
+                  </Row> : null}
               </Card.Text>
             </Card.Body>
         </Card>
