@@ -25,26 +25,40 @@ var reducer = (state = INITIAL_STATE, action) => {
         albums: [action.payload.album, ...state.albums]
       }
     case 'ERRORS_FROM_ALBUM_CREATED':
-      // action.payload.errors.forEach(error => toastr.error("Error", error));
       return state
     case 'ALBUMS_FETCHED':
+      const hits = action.payload.albums.hits
+      const estimatedTotalHits = action.payload.albums.estimatedTotalHits
+      const limit = action.payload.albums.limit
+      const offset = action.payload.albums.offset
       return {
         ...state,
-        albums: action.payload.albums,
-        pagination: action.payload.pagination
+        albums: hits,
+        pagination: {
+          pages_count: Math.ceil(estimatedTotalHits / limit),
+          per_page: limit,
+          current_page: ((offset / limit) + 1),
+          items_count: estimatedTotalHits
+        }
       }
     case 'ERRORS_FROM_SEARCH_ALBUMS':
-      // action.payload.errors.forEach(error => toastr.error("Error", error));
       return state
     case 'ALBUM_UPDATED':
       const album = action.payload.album;
-      const albums = state.albums.filter(obj => obj.id !== album.id);
+      const albums = state.albums.filter(obj => Number(obj.id) !== Number(album.id));
       return {
         ...state,
-        albums: [...albums, album].sort((a,b) => b.id - a.id)
+        albums: [...albums, album].sort(function (a, b) {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name) {
+            return 1;
+          }
+          return 0;
+        })
       }
     case 'ERRORS_FROM_ALBUM_UPDATED':
-      // action.payload.errors.forEach(error => toastr.error("Error", error));
       return state
     case 'ALBUM_REMOVED':
       const id = action.payload.album.id
@@ -53,7 +67,6 @@ var reducer = (state = INITIAL_STATE, action) => {
         albums: state.albums.filter((album) => {return album.id !== id})
       }
     case 'ERRORS_FROM_ALBUM_REMOVED':
-      // action.payload.errors.forEach(error =>toastr.error("Error", error));
       return state
     case 'LOGOUT':
       return INITIAL_STATE

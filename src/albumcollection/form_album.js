@@ -66,5 +66,5 @@ let FormAlbum = (props) => {
   )
 }
 FormAlbum = reduxForm({ form: "albumForm", enableReinitialize: true})(FormAlbum);
-FormAlbum = connect(state => ({pristine: isPristine('albumForm')(state), initialValues: {id: _.get(state,'musicollection.album.id'), name: _.get(state, 'musicollection.album.name'), year: _.get(state, 'musicollection.album.year'), artist_id: _.get(state, 'musicollection.album.artist.id')}}),null)(FormAlbum)
+FormAlbum = connect(state => ({pristine: isPristine('albumForm')(state), initialValues: {id: _.get(state,'albumcollection.album.id'), name: _.get(state, 'albumcollection.album.name'), year: _.get(state, 'albumcollection.album.year'), artist_id: _.get(state, 'albumcollection.album.artist.id')}}),null)(FormAlbum)
 export default FormAlbum;

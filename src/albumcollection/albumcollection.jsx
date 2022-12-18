@@ -39,12 +39,12 @@ const List = props => {
   return listItems;
 }
 
-let Musicollection = props => {
+let Albumcollection = props => {
   const dispatch = useDispatch();
-  const seletor = formValueSelector("musicollection");
+  const seletor = formValueSelector("albumcollection");
   const query = useSelector(state => seletor(state, "query"))
-  const musicollection = useSelector(state => state.musicollection)
-  const {albums, pagination, album, list_of_artists} = musicollection;
+  const albumcollection = useSelector(state => state.albumcollection)
+  const {albums, pagination, album, list_of_artists} = albumcollection;
   const [searching, setSearching] = useState(false);	
   const [selected_album, setSelectedAlbum] = useState(null);	
   const [op, setOpAlbum] = useState(null);	
@@ -112,7 +112,7 @@ let Musicollection = props => {
             <Row>
               <Col lg={{ span: 5, offset: 0 }} className='mt-1 mb-1'>
                 <h3 className="text-light font-weight-light">
-                  <NavLink className="darkseagreen" to="/">Home</NavLink> / Music Collection
+                  <NavLink className="darkseagreen" to="/">Home</NavLink> / Album Collection
                 </h3>
               </Col>
               <Col lg={{ span: 6, offset: 0 }}>
@@ -182,5 +182,5 @@ let Musicollection = props => {
   )
 }
 
-Musicollection = reduxForm({ form: "musicollection", initialValues: { query: '' } })(Musicollection);
-export default Musicollection
+Albumcollection = reduxForm({ form: "albumcollection", initialValues: { query: '' } })(Albumcollection);
+export default Albumcollection
