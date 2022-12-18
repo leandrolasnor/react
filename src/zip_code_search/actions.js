@@ -17,7 +17,7 @@ export function search_addreses(query = ''){
 export function capture_address(zip){
   return dispatch => { 
     axios.get(`/latech/addreses/capture/${zip}`).then(resp => {
-      dispatch({type: 'CAPTURED_ADDRESS', payload: { address: resp.data.payload }})
+      if (resp.data.payload) dispatch({type: 'CAPTURED_ADDRESS', payload: { address: resp.data.payload }})
     }).catch(e => {
       if (e.response) {
         if (e.response.data.errors) {
