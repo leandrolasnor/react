@@ -64,7 +64,7 @@ var reducer = (state = INITIAL_STATE, action) => {
       const id = action.payload.album.id
       return {
         ...state,
-        albums: state.albums.filter((album) => {return album.id !== id})
+        albums: state.albums.filter((album) => Number(album.id) !== Number(id))
       }
     case 'ERRORS_FROM_ALBUM_REMOVED':
       return state
